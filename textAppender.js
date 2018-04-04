@@ -5,7 +5,7 @@ var text2MarginLeft = 360;
 var canvasWidth = canvasHeight = 680;
 
 var sourceImg = new Image();
-sourceImg.src = 'https://cederstrom.github.io/den-ar-efterbliven/source.png';
+sourceImg.src = 'https://cederstrom.github.io/den-ar-efterbliven/assets/source.png';
 sourceImg.crossOrigin = "Anonymous";
 var outImg = document.getElementById('outImg');
 
