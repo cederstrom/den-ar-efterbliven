@@ -26,12 +26,17 @@ function writeText(text, marginLeft, whereToStart, charWidth) {
     lines.forEach(function(line, index) {
         ctx.fillText(
             line,
-            marginLeft + calcOffset(line, whereToStart, charWidth),
-            marginTop - (lines.length - index - 1) * lineHeight, maxWith);
+            marginLeft + calcSideOffset(line, whereToStart, charWidth),
+            marginTop - calcHeightOffset(lines, index),
+            maxWith);
     });
 }
 
-function calcOffset(text, whereToStart, charWidth) {
+function calcSideOffset(text, whereToStart, charWidth) {
     var offset = (maxWith * whereToStart) - (text.length * charWidth);
     return offset > 0 ? offset : 0;
+}
+
+function calcHeightOffset(lines, index) {
+    return (lines.length - index - 1) * lineHeight;
 }
