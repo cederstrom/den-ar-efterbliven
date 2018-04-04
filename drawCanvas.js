@@ -1,9 +1,8 @@
-var marginTop = 120;
+var marginTop = 130;
 var maxWith = 300;
-var text1MarginLeft = 20;
-var text2MarginLeft = 360;
 var canvasWidth = canvasHeight = 680;
 var fontSize = 30;
+var lineHeight = fontSize + 5;
 
 var sourceImg = new Image();
 sourceImg.src = 'https://cederstrom.github.io/den-ar-efterbliven/assets/source.png';
@@ -17,17 +16,19 @@ ctx.font = 'normal ' + fontSize + 'px arial';
 
 function drawCanvas(text1, text2) {
     ctx.drawImage(sourceImg, 0, 0);
-
-    var text1Lines = text1.split('\n');
-    text1Lines.forEach(function(line, index) {
-        ctx.fillText(line, text1MarginLeft + calcOffset(line, .5, 8), marginTop - (text1Lines.length - index - 1) * fontSize, maxWith);
-    });
-    
-    var text2Lines = text2.split('\n');
-    text2Lines.forEach(function(line, index) {
-        ctx.fillText(line, text2MarginLeft + calcOffset(line, .2, 4), marginTop - (text2Lines.length - index - 1) * fontSize, maxWith);
-    });
+    writeText(text1, 20, .5, 8);
+    writeText(text2, 360, .2, 4);
     return canvas;
+}
+
+function writeText(text, marginLeft, whereToStart, charWidth) {
+    var lines = text.split('\n');
+    lines.forEach(function(line, index) {
+        ctx.fillText(
+            line,
+            marginLeft + calcOffset(line, whereToStart, charWidth),
+            marginTop - (lines.length - index - 1) * lineHeight, maxWith);
+    });
 }
 
 function calcOffset(text, whereToStart, charWidth) {
