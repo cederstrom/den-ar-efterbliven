@@ -1,13 +1,12 @@
 html {
     font-family: monospace;
+    font-size: 1.2rem;
 }
 
 img {
     border: 8px solid black;
-    height: 96%;
     width: 96%;
     max-width: 680px;
-    max-height: 680px
 }
 
 .hidden {
@@ -17,7 +16,6 @@ img {
 label {
     display: inline-grid;
     padding: .5rem 0;
-    font-size: 1.2rem;
 }
 
 input[type="text"] {
