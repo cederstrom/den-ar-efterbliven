@@ -1,4 +1,5 @@
-var marginTop = 130;
+var firstRowMarginTop = 130;
+var secondRowMarginTop = 465;
 var maxWith = 300;
 var canvasWidth = canvasHeight = 680;
 var fontSize = 30;
@@ -16,12 +17,16 @@ ctx.font = 'normal ' + fontSize + 'px arial';
 
 function drawCanvas(text1, text2) {
     ctx.drawImage(sourceImg, 0, 0);
-    writeText(text1, 20, .5, 8);
-    writeText(text2, 360, .2, 4);
+
+    writeText(text1, firstRowMarginTop, 20, .5, 8);
+    writeText(text2, firstRowMarginTop, 360, .2, 4);
+
+    writeText('Åh nej', secondRowMarginTop, 110, 0, 0);
+    writeText('Den är efterbliven', secondRowMarginTop, 390, 0, 0);
     return canvas;
 }
 
-function writeText(text, marginLeft, whereToStart, charWidth) {
+function writeText(text, marginTop, marginLeft, whereToStart, charWidth) {
     var lines = text.split('\n');
     lines.forEach(function(line, index) {
         ctx.fillText(
